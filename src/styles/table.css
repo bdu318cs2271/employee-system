@@ -1,0 +1,71 @@
+.employee-list-container{
+    padding: 30px;
+}
+
+.employee-title{
+    margin-bottom: 20px;
+    color: #0f172a;
+}
+
+/* Table */
+
+.emp-table{
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Header */
+
+.emp-table th{
+    background-color: #0f172a;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Table Data */
+
+.emp-table td{
+    padding: 14px;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* Hover Effect */
+
+.emp-table tr:hover{
+    background-color: #f8fafc;
+}
+
+/* Buttons */
+
+.edit-btn{
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    margin-right: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.edit-btn:hover{
+    background-color: #1d4ed8;
+}
+
+.delete-btn{
+    background-color: #dc2626;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.delete-btn:hover{
+    background-color: #b91c1c;
+}
