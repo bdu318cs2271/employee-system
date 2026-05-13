@@ -10,7 +10,7 @@ function EmployeeList({ employees, setEmployees }) {
   // 🔥 GET DATA FROM DJANGO BACKEND
   useEffect(() => {
 
-    axios.get("http://127.0.0.1:8000/api/employees/")
+    axios.get("https://employee-system-1-e4bi.onrender.com/api/employees/")
       .then((res) => {
         setEmployees(res.data);
       })
@@ -23,7 +23,7 @@ function EmployeeList({ employees, setEmployees }) {
   // 🔥 BACKEND DELETE (IMPORTANT FIX)
   const handleDelete = (id) => {
 
-    axios.delete(`http://127.0.0.1:8000/api/delete/${id}/`)
+    axios.delete(`https://employee-system-1-e4bi.onrender.com/api/delete/${id}/`)
       .then(() => {
 
         // remove from UI also
