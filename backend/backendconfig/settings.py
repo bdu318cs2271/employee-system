@@ -82,9 +82,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# 📦 STATIC FILES (CSS FIX)
-STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # 🌐 CORS
 CORS_ALLOW_ALL_ORIGINS = True
