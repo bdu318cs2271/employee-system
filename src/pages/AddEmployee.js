@@ -26,7 +26,7 @@ function AddEmployee({ employees, setEmployees }) {
     };
 
     axios.post(
-      "http://127.0.0.1:8000/api/add/",
+      "https://employee-system-1-e4bi.onrender.com/api/add/",
       newEmployee
     )
 
