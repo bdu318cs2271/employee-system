@@ -26,14 +26,14 @@ function EditEmployee({ employees, setEmployees }) {
     try {
 
       await axios.put(
-        `https://employee-system-1-e4bi.onrender.com/employees/${employee.id}`,
-        {
-          name,
-          employeeId,
-          department,
-          salary
-        }
-      );
+  `https://employee-system-1-e4bi.onrender.com/api/update/${employee.id}`,
+  {
+    name,
+    employeeId,
+    department,
+    salary
+  }
+);
 
       const updatedEmployees = employees.map((emp) =>
 
