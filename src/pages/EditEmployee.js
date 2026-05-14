@@ -1,5 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import axios from "axios";
 import "../styles/editemployee.css";
 
 function EditEmployee({ employees, setEmployees }) {
@@ -18,28 +19,48 @@ function EditEmployee({ employees, setEmployees }) {
   const [salary, setSalary] =
     useState(employee.salary);
 
-  const handleUpdate = (e) => {
+  const handleUpdate = async (e) => {
 
     e.preventDefault();
 
-    const updatedEmployees = employees.map((emp) =>
+    try {
 
-      emp.id === employee.id
-        ? {
-            ...emp,
-            name,
-            employeeId,
-            department,
-            salary
-          }
-        : emp
-    );
+      await axios.put(
+        `https://employee-system-1-e4bi.onrender.com/employees/${employee.id}`,
+        {
+          name,
+          employeeId,
+          department,
+          salary
+        }
+      );
 
-    setEmployees(updatedEmployees);
+      const updatedEmployees = employees.map((emp) =>
 
-    alert("Employee Updated Successfully");
+        emp.id === employee.id
+          ? {
+              ...emp,
+              name,
+              employeeId,
+              department,
+              salary
+            }
+          : emp
+      );
 
-    navigate("/employeelist");
+      setEmployees(updatedEmployees);
+
+      alert("Employee Updated Successfully");
+
+      navigate("/employeelist");
+
+    } catch (error) {
+
+      console.log(error);
+
+      alert("Update Failed");
+
+    }
   };
 
   return (
