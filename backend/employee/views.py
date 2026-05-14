@@ -36,6 +36,7 @@ def addEmployee(request):
         status=status.HTTP_400_BAD_REQUEST
     )
 
+
 @api_view(['DELETE'])
 def deleteEmployee(request, id):
 
@@ -49,3 +50,34 @@ def deleteEmployee(request, id):
     except Employee.DoesNotExist:
 
         return Response({"error": "Not found"}, status=404)
+
+
+@api_view(['PUT'])
+def updateEmployee(request, id):
+
+    try:
+
+        employee = Employee.objects.get(id=id)
+
+    except Employee.DoesNotExist:
+
+        return Response(
+            {"error": "Employee not found"},
+            status=404
+        )
+
+    serializer = EmployeeSerializer(
+        employee,
+        data=request.data
+    )
+
+    if serializer.is_valid():
+
+        serializer.save()
+
+        return Response(serializer.data)
+
+    return Response(
+        serializer.errors,
+        status=status.HTTP_400_BAD_REQUEST
+    )
